@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Route Card · Bronze DofE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800;9..144,900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --paper:        #FAF6EE;
+    --paper-tint:   #F2EBDA;
+    --buff:         #E8DFC8;
+    --ink:          #1A1815;
+    --ink-soft:     #4A453E;
+    --terracotta:   #B95E3D;
+    --terracotta-2: #8E4327;
+    --teal:         #1F3D3A;
+    --teal-2:       #2D5651;
+    --rule:         #C9BFA8;
+    --error:        #A0322B;
+    --ok:           #2D5651;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+    min-height: 100vh;
+}
+
+/* Subtle contour-line texture for the page background */
+body {
+    background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'><g fill='none' stroke='%23B95E3D' stroke-width='0.4' opacity='0.06'><path d='M -50 200 Q 50 120, 150 180 T 350 160 T 550 220'/><path d='M -50 240 Q 60 180, 160 220 T 360 210 T 560 270'/><path d='M -50 280 Q 70 240, 170 270 T 370 260 T 570 320'/><path d='M -50 320 Q 80 290, 180 310 T 380 310 T 580 360'/><path d='M -50 360 Q 90 340, 190 350 T 390 360 T 590 400'/><path d='M -50 160 Q 40 90, 140 140 T 340 110 T 540 170'/><path d='M -50 120 Q 30 60, 130 100 T 330 70 T 530 130'/></g></svg>");
+    background-size: 600px 600px;
+    background-attachment: fixed;
+}
+
+/* ====== Header ====== */
+header {
+    border-bottom: 1px solid var(--rule);
+    padding: 2.5rem 2rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+}
+header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, var(--paper-tint) 100%);
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.masthead {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+}
+.masthead .title-block { flex: 1; }
+
+.eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+.eyebrow::before, .eyebrow::after {
+    content: '';
+    height: 1px;
+    flex: 0 0 1.5rem;
+    background: currentColor;
+}
+.eyebrow::after { flex: 1; max-width: 8rem; }
+
+h1 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144, "wght" 800;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+}
+h1 em {
+    font-variation-settings: "opsz" 144, "wght" 400;
+    font-style: italic;
+    color: var(--teal);
+}
+
+.tagline {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-top: 0.6rem;
+    max-width: 38ch;
+}
+
+.compass-rose {
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+    color: var(--teal);
+    opacity: 0.85;
+}
+@media (max-width: 640px) {
+    .compass-rose { width: 56px; height: 56px; }
+    .masthead { gap: 1rem; }
+}
+
+/* ====== Main layout ====== */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+}
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0 1.5rem;
+}
+.section-divider .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    white-space: nowrap;
+}
+.section-divider .number {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 9, "wght" 600;
+    font-size: 0.85rem;
+    color: var(--terracotta);
+    background: var(--paper);
+    border: 1px solid var(--terracotta);
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.section-divider .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+}
+
+/* ====== Form fields ====== */
+.field-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem 1.5rem;
+}
+label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 0.4rem;
+}
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    font-family: 'Newsreader', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    transition: border-color 120ms, background 120ms;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--teal);
+    background: #fff;
+}
+input.mono { font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; }
+
+.help {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 0.3rem;
+    font-style: italic;
+}
+.error-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--error);
+    margin-top: 0.3rem;
+}
+
+/* ====== Group level pills ====== */
+.pill-group {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+.pill {
+    flex: 1;
+    min-width: 70px;
+    padding: 0.5rem 0.9rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    cursor: pointer;
+    text-align: center;
+    transition: all 120ms;
+}
+.pill:hover { border-color: var(--terracotta); color: var(--terracotta); }
+.pill.active {
+    background: var(--teal);
+    color: var(--paper);
+    border-color: var(--teal);
+}
+
+.pace-row {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+.pace-row input[type="range"] { flex: 1; accent-color: var(--terracotta); }
+.pace-row .pace-readout {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 500;
+    min-width: 6.5rem;
+    color: var(--teal);
+}
+
+/* ====== Waypoint rows ====== */
+.waypoints {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.waypoint {
+    display: grid;
+    grid-template-columns: 2.2rem minmax(0, 2fr) minmax(0, 1.5fr) minmax(0, 1fr) auto;
+    gap: 0.6rem;
+    align-items: start;
+    padding: 0.7rem 0.8rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    transition: border-color 120ms, background 120ms;
+}
+.waypoint:hover { border-color: var(--teal); }
+.waypoint.invalid { border-color: var(--error); background: #FBF2F0; }
+
+.wp-num {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 9, "wght" 700;
+    font-size: 1.2rem;
+    color: var(--terracotta);
+    text-align: center;
+    padding-top: 0.25rem;
+}
+.waypoint label { display: none; }
+.waypoint .wp-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 0.1rem;
+}
+.icon-btn {
+    background: transparent;
+    border: 1px solid var(--rule);
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 2px;
+    cursor: pointer;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 120ms;
+    font-family: inherit;
+    line-height: 1;
+}
+.icon-btn:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+}
+.icon-btn.delete:hover { border-color: var(--error); color: var(--error); }
+.icon-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.icon-btn svg { width: 12px; height: 12px; }
+
+.wp-detail {
+    grid-column: 1 / -1;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    padding-left: 2.6rem;
+    margin-top: -0.1rem;
+}
+.wp-detail .ok { color: var(--ok); }
+.wp-detail .err { color: var(--error); }
+
+@media (max-width: 720px) {
+    .waypoint {
+        grid-template-columns: 2rem 1fr auto;
+        grid-template-areas:
+            "num name controls"
+            ".   gref controls"
+            ".   asc  controls";
+        gap: 0.5rem;
+    }
+    .waypoint .wp-num { grid-area: num; }
+    .waypoint .wp-name { grid-area: name; }
+    .waypoint .wp-gref { grid-area: gref; }
+    .waypoint .wp-asc { grid-area: asc; }
+    .waypoint .wp-controls { grid-area: controls; }
+    .wp-detail { padding-left: 0; }
+}
+
+/* ====== Buttons ====== */
+.btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.6rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 150ms;
+}
+.btn-primary {
+    background: var(--terracotta);
+    color: var(--paper);
+    font-weight: 700;
+}
+.btn-primary:hover { background: var(--terracotta-2); }
+.btn-primary:disabled {
+    background: var(--rule);
+    color: var(--ink-soft);
+    cursor: not-allowed;
+}
+.btn-secondary {
+    background: transparent;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+}
+.btn-secondary:hover { background: var(--teal); color: var(--paper); }
+.btn-ghost {
+    background: transparent;
+    color: var(--ink-soft);
+    border: 1px dashed var(--rule);
+    width: 100%;
+    padding: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+.btn-ghost:hover { border-color: var(--terracotta); color: var(--terracotta); border-style: solid; }
+
+.action-row {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.print-hint {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-left: 0.4rem;
+}
+.print-hint strong {
+    font-style: normal;
+    color: var(--terracotta-2);
+    font-weight: 600;
+}
+
+/* Elevation API integration ------------------------------------------ */
+.elev-tag {
+    display: inline-block;
+    margin-left: 0.6rem;
+    padding: 0.05rem 0.5rem;
+    border: 1px solid var(--teal);
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--teal);
+    background: rgba(31, 61, 58, 0.04);
+    cursor: help;
+}
+.elev-tag.track-tag {
+    border-color: var(--terracotta-2);
+    color: var(--terracotta-2);
+    background: rgba(185, 94, 61, 0.06);
+}
+
+/* Auto-generated placeholder names from GPX import — visual cue that
+   they're not human-written. Pupils should rename them. As soon as the
+   pupil types in the field, the class is removed and the input looks
+   normal.                                                                */
+input.auto-name {
+    font-style: italic;
+    color: var(--ink-faint, #8a8478);
+    background: rgba(31, 61, 58, 0.025);
+}
+
+/* Import-from-GPX button uses a different accent so it reads as a
+   distinct entry point (not an action on existing data).             */
+.btn-import {
+    background: var(--teal);
+    color: #fff;
+    border: 1px solid var(--teal);
+}
+.btn-import:hover { background: var(--teal-2); }
+
+.elev-status {
+    margin-top: 0.9rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 1.4rem;
+}
+.elev-status.ok    { color: var(--teal); }
+.elev-status.err   { color: var(--error); }
+.elev-status.busy  { color: var(--ink-soft); }
+.elev-status:empty { display: none; }
+
+.spinner {
+    width: 14px; height: 14px;
+    border: 2px solid var(--rule);
+    border-top-color: var(--terracotta);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.btn-secondary[disabled],
+.btn-primary[disabled],
+.btn-ghost[disabled] {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ====== Output route card ====== */
+.output {
+    margin-top: 4rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 2.5rem;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02), 0 8px 24px -12px rgba(31, 61, 58, 0.18);
+    position: relative;
+}
+.output::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--terracotta), var(--teal));
+}
+
+.output-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.output-title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144, "wght" 700;
+    font-size: 1.85rem;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+}
+.output-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-top: 0.4rem;
+    letter-spacing: 0.05em;
+}
+.output-meta span + span::before {
+    content: ' · ';
+    margin: 0 0.3rem;
+    color: var(--rule);
+}
+
+.totals {
+    display: flex;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+}
+.totals .stat { text-align: right; }
+.totals .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+.totals .stat-value {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144, "wght" 700;
+    font-size: 1.4rem;
+    color: var(--ink);
+    line-height: 1;
+    margin-top: 0.2rem;
+}
+.totals .stat-value .unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--ink-soft);
+    margin-left: 0.15rem;
+}
+
+/* Route card table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    font-size: 0.92rem;
+}
+thead th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: left;
+    padding: 0.55rem 0.7rem;
+    border-bottom: 1.5px solid var(--ink);
+    background: var(--paper-tint);
+    font-weight: 500;
+}
+tbody td {
+    padding: 0.85rem 0.7rem;
+    border-bottom: 1px dotted var(--rule);
+    vertical-align: top;
+}
+tbody tr:nth-child(even) td { background: rgba(232, 223, 200, 0.25); }
+.cell-num {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 9, "wght" 700;
+    color: var(--terracotta);
+    font-size: 1.05rem;
+    width: 2rem;
+}
+.cell-mono { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; }
+.cell-from-to { line-height: 1.3; }
+.cell-from-to .arrow {
+    color: var(--terracotta);
+    margin: 0 0.2rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+.cell-gref {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    display: block;
+    margin-top: 0.2rem;
+}
+
+.disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.2rem;
+    background: var(--paper-tint);
+    border-left: 3px solid var(--terracotta);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+}
+.disclaimer strong { color: var(--terracotta); letter-spacing: 0.05em; }
+
+/* Magnetic variation notice ------------------------------------------ */
+.mag-notice {
+    margin-top: 1.2rem;
+    padding: 0.7rem 1rem;
+    border-radius: 3px;
+    border: 1px solid var(--rule);
+    background: var(--paper-deep);
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+.mag-notice:empty { display: none; }
+
+.mag-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+}
+.mag-source {
+    font-size: 0.78rem;
+    color: var(--ink-faint, #8a8478);
+    font-style: italic;
+    margin-left: auto;
+}
+
+@media print {
+    .mag-notice {
+        margin-top: 0.4cm;
+        padding: 0.3cm 0.5cm;
+        font-size: 9pt;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #bbb;
+        background: #f5f0e8 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .mag-value { font-size: 11pt; }
+    .mag-source { font-size: 8pt; }
+}
+
+.signature-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem 2rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+}
+.signature-row .sig-block {
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 0.4rem;
+    min-height: 2.5rem;
+}
+.signature-row .sig-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 0.35rem;
+}
+
+/* Print */
+@media print {
+    /* Try every form of the orientation hint browsers might honour.
+       Safari and Chrome usually respect this for "Save as PDF"; for actual
+       printers the user's print-dialog orientation usually wins, hence the
+       on-screen "Print as landscape" hint by the button.                    */
+    @page {
+        size: A4 landscape;
+        size: 297mm 210mm;     /* explicit fallback: width × height          */
+        margin: 12mm;
+    }
+
+    html, body {
+        background: #fff !important;
+        background-image: none !important;
+        background-color: #fff !important;
+    }
+    header, .form-section, .action-row.no-print, .print-actions, .section-divider,
+    .elev-status { display: none !important; }
+    main { padding: 0; max-width: none; }
+
+    .output {
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        background: #fff !important;
+    }
+    .output::before { display: none; }
+    .output-head { page-break-after: avoid; margin-bottom: 0.4cm; }
+
+    /* Table that flows across pages -------------------------------------- */
+    table { font-size: 9.5pt; page-break-inside: auto; break-inside: auto; }
+    /* Repeat the header row on every continued page */
+    thead { display: table-header-group; }
+    tfoot { display: table-footer-group; }
+    /* Don't split a single leg's row across pages — both the legacy and
+       modern CSS property names, since browsers honour them differently
+       and table-row breaks are notoriously inconsistent.                   */
+    tr {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        page-break-after: auto;
+        break-after: auto;
+    }
+    /* Some browsers (older Safari especially) only respect break-inside
+       on the cells, not the row — so apply to <td> as well.                */
+    td, th {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+    thead th { padding: 0.3rem 0.5rem; }
+    tbody td { padding: 0.4rem 0.5rem; }
+
+    /* Tighten everything else for landscape efficiency ------------------- */
+    .disclaimer {
+        margin-top: 0.4cm;
+        padding: 0.35cm 0.5cm;
+        font-size: 9pt;
+        line-height: 1.4;
+        page-break-inside: avoid;
+    }
+    /* Allow the signature row to flow with the rest, not be kept together
+       as a wholesale block — that way it fits in remaining page-1 space.   */
+    .signature-row {
+        margin-top: 0.5cm;
+        padding-top: 0.25cm;
+        gap: 0.6rem 1.5rem;
+    }
+    .signature-row .sig-block { min-height: 1.4rem; }
+    .signature-row .sig-label { font-size: 7.5pt; margin-top: 0.15rem; }
+}
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="masthead">
+        <div class="title-block">
+            <div class="eyebrow">Bronze · Duke of Edinburgh's Award</div>
+            <h1>Route<br>Card<em>.</em></h1>
+            <p class="tagline">Plot your waypoints, set your pace, generate a leg-by-leg expedition card you can print and take into the field.</p>
+        </div>
+        <svg class="compass-rose" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.7" aria-hidden="true">
+            <circle cx="50" cy="50" r="44" stroke-width="0.5"/>
+            <circle cx="50" cy="50" r="36" stroke-dasharray="1,2" stroke-width="0.4"/>
+            <path d="M50 6 L54 50 L50 94 L46 50 Z" fill="currentColor" stroke="none" opacity="0.85"/>
+            <path d="M6 50 L50 54 L94 50 L50 46 Z" fill="currentColor" stroke="none" opacity="0.35"/>
+            <text x="50" y="14" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="currentColor" stroke="none">N</text>
+            <text x="50" y="92" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="currentColor" stroke="none">S</text>
+            <text x="9"  y="52" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="currentColor" stroke="none">W</text>
+            <text x="91" y="52" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="currentColor" stroke="none">E</text>
+        </svg>
+    </div>
+</header>
+
+<main>
+    <section class="form-section">
+
+        <div class="section-divider">
+            <span class="number">1</span>
+            <span class="label">Route Information</span>
+            <span class="rule"></span>
+        </div>
+
+        <div class="field-grid">
+            <div>
+                <label for="routeName">Route name</label>
+                <input type="text" id="routeName" placeholder="e.g. Cocking to Buriton training day" autocomplete="off">
+            </div>
+            <div>
+                <label for="routeDate">Date</label>
+                <input type="date" id="routeDate">
+            </div>
+            <div>
+                <label>Group level</label>
+                <div class="pill-group" id="levelPills">
+                    <button type="button" class="pill active" data-level="bronze" data-pace="0.7">Bronze</button>
+                    <button type="button" class="pill" data-level="silver" data-pace="0.8">Silver</button>
+                    <button type="button" class="pill" data-level="gold" data-pace="0.9">Gold</button>
+                </div>
+                <div class="help">Sets a starting pace factor; tune it after your first practice day.</div>
+            </div>
+            <div>
+                <label for="paceFactor">Pace factor (× Naismith)</label>
+                <div class="pace-row">
+                    <input type="range" id="paceFactor" min="0.5" max="1.0" step="0.05" value="0.7">
+                    <span class="pace-readout" id="paceReadout">0.70 × ≈ 3.5 km/h</span>
+                </div>
+            </div>
+            <div>
+                <label for="restPerHour">Rest minutes per hour</label>
+                <input type="number" id="restPerHour" value="10" min="0" max="30" step="1">
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <span class="number">2</span>
+            <span class="label">Waypoints</span>
+            <span class="rule"></span>
+        </div>
+
+        <div class="waypoints" id="waypoints"></div>
+
+        <div class="action-row no-print">
+            <button type="button" class="btn-ghost" id="addWaypointBtn">+  Add waypoint</button>
+        </div>
+
+        <div class="action-row no-print">
+            <button type="button" class="btn btn-primary" id="generateBtn">Generate route card</button>
+            <button type="button" class="btn btn-import" id="importGpxBtn" title="Import a route drawn in OS Maps (.gpx file). Waypoints and the rendered path will be loaded.">↥ Import OS Maps GPX</button>
+            <input type="file" id="gpxFileInput" accept=".gpx,application/gpx+xml,text/xml" style="display:none">
+            <button type="button" class="btn btn-secondary" id="fetchElevBtn" title="Estimate ascent for each leg from a free terrain elevation API">↑ Fetch elevations</button>
+            <button type="button" class="btn btn-secondary" id="sampleBtn">Load sample route</button>
+            <button type="button" class="btn btn-secondary" id="clearBtn">Clear all</button>
+        </div>
+        <div class="elev-status no-print" id="elevStatus"></div>
+
+    </section>
+
+    <section class="output" id="output" hidden>
+        <div class="output-head">
+            <div>
+                <div class="output-title" id="outTitle"></div>
+                <div class="output-meta" id="outMeta"></div>
+            </div>
+            <div class="totals" id="outTotals"></div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>From → To</th>
+                    <th>Bearing<br><span style="font-weight:300">(grid °)</span></th>
+                    <th>Distance</th>
+                    <th>Ascent</th>
+                    <th>Time</th>
+                    <th>Cumulative</th>
+                    <th>Escape route / notes</th>
+                </tr>
+            </thead>
+            <tbody id="outBody"></tbody>
+        </table>
+
+        <div class="mag-notice" id="magNotice"></div>
+
+        <div class="disclaimer">
+            <strong>Draft route card —</strong> verify every leg against an OS Explorer 1:25 000 map before any expedition.
+            Distances are taken from the imported GPX track where available, otherwise computed straight-line on the OS national
+            grid (real walking distance will be longer on bends). Bearings are grid bearings — apply the magnetic variation
+            shown above before setting your compass. Ascent and descent figures, where given, are sampled from a 90 m terrain
+            dataset and should be treated as a guide, not a survey.
+        </div>
+
+        <div class="signature-row">
+            <div>
+                <div class="sig-block">&nbsp;</div>
+                <div class="sig-label">Group leader (print &amp; sign)</div>
+            </div>
+            <div>
+                <div class="sig-block">&nbsp;</div>
+                <div class="sig-label">Supervisor</div>
+            </div>
+            <div>
+                <div class="sig-block">&nbsp;</div>
+                <div class="sig-label">Emergency contact</div>
+            </div>
+        </div>
+
+        <div class="action-row print-actions no-print" style="margin-top:2rem; align-items:center">
+            <button type="button" class="btn btn-primary" onclick="window.print()">Print / Save PDF</button>
+            <button type="button" class="btn btn-secondary" onclick="document.getElementById('output').hidden=true; window.scrollTo({top:0,behavior:'smooth'})">Back to edit</button>
+            <span class="print-hint">Tip: in the print dialog, select <strong>Landscape</strong> orientation.</span>
+        </div>
+    </section>
+</main>
+
+<script>
+// ============================================================================
+// OSGB36 grid reference parsing & coordinate conversions.
+// Ported from the Python reference implementation; same maths.
+// ============================================================================
+
+const FIRST_LETTERS = {
+    S: [0,      0],
+    T: [500000, 0],
+    N: [0,      500000],
+    O: [500000, 500000],
+    H: [0,      1000000],
+    J: [500000, 1000000],
+};
+const SECOND_LETTERS = "ABCDEFGHJKLMNOPQRSTUVWXYZ";  // no I
+
+function parseGridRef(ref) {
+    const cleaned = ref.replace(/\s+/g, "").toUpperCase();
+    const m = cleaned.match(/^([A-Z]{2})(\d+)$/);
+    if (!m) throw new Error("Not a recognisable grid ref");
+    const [, letters, digits] = m;
+    if (digits.length % 2 !== 0) throw new Error("Need an even number of digits");
+    if (digits.length > 10) throw new Error("Too precise (max 10 digits)");
+    if (digits.length < 4)  throw new Error("Need at least 4 digits");
+
+    const [a, b] = letters;
+    if (!(a in FIRST_LETTERS))  throw new Error(`Unknown letter '${a}'`);
+    const idx = SECOND_LETTERS.indexOf(b);
+    if (idx < 0 || b === "I")   throw new Error(`Unknown letter '${b}'`);
+
+    let [e0, n0] = FIRST_LETTERS[a];
+    const col = idx % 5;
+    const row = 4 - Math.floor(idx / 5);
+    e0 += col * 100000;
+    n0 += row * 100000;
+
+    const half = digits.length / 2;
+    const scale = Math.pow(10, 5 - half);
+    const easting  = e0 + parseInt(digits.slice(0, half), 10) * scale;
+    const northing = n0 + parseInt(digits.slice(half),    10) * scale;
+    return { easting, northing };
+}
+
+// OSGB36 -> WGS84 conversion (kept for the elevation-API step later).
+const A_AIRY = 6377563.396, B_AIRY = 6356256.909;
+const F0 = 0.9996012717;
+const LAT0 = 49 * Math.PI / 180, LON0 = -2 * Math.PI / 180;
+const E0 = 400000, N0 = -100000;
+const E2 = (A_AIRY*A_AIRY - B_AIRY*B_AIRY) / (A_AIRY*A_AIRY);
+const NN = (A_AIRY - B_AIRY) / (A_AIRY + B_AIRY);
+
+function meridionalArc(lat) {
+    const n = NN, n2 = n*n, n3 = n2*n;
+    return B_AIRY * F0 * (
+        (1 + n + 5/4*n2 + 5/4*n3) * (lat - LAT0)
+      - (3*n + 3*n2 + 21/8*n3) * Math.sin(lat - LAT0) * Math.cos(lat + LAT0)
+      + (15/8*n2 + 15/8*n3) * Math.sin(2*(lat - LAT0)) * Math.cos(2*(lat + LAT0))
+      - (35/24*n3) * Math.sin(3*(lat - LAT0)) * Math.cos(3*(lat + LAT0))
+    );
+}
+function enToOsgb36LatLon(e, n) {
+    let lat = LAT0, M = 0;
+    for (let i = 0; i < 25; i++) {
+        lat = (n - N0 - M) / (A_AIRY * F0) + lat;
+        M = meridionalArc(lat);
+        if (Math.abs(n - N0 - M) < 1e-5) break;
+    }
+    const sinL = Math.sin(lat), cosL = Math.cos(lat);
+    const nu  = A_AIRY * F0 / Math.sqrt(1 - E2 * sinL*sinL);
+    const rho = A_AIRY * F0 * (1 - E2) / Math.pow(1 - E2 * sinL*sinL, 1.5);
+    const eta2 = nu/rho - 1;
+    const t = Math.tan(lat), t2 = t*t, t4 = t2*t2, t6 = t4*t2, sec = 1/cosL;
+    const VII  = t / (2 * rho * nu);
+    const VIII = t / (24 * rho * Math.pow(nu, 3)) * (5 + 3*t2 + eta2 - 9*t2*eta2);
+    const IX   = t / (720 * rho * Math.pow(nu, 5)) * (61 + 90*t2 + 45*t4);
+    const X    = sec / nu;
+    const XI   = sec / (6 * Math.pow(nu, 3)) * (nu/rho + 2*t2);
+    const XII  = sec / (120 * Math.pow(nu, 5)) * (5 + 28*t2 + 24*t4);
+    const XIIA = sec / (5040 * Math.pow(nu, 7)) * (61 + 662*t2 + 1320*t4 + 720*t6);
+    const dE = e - E0;
+    const outLat = lat - VII*dE*dE + VIII*Math.pow(dE,4) - IX*Math.pow(dE,6);
+    const outLon = LON0 + X*dE - XI*Math.pow(dE,3) + XII*Math.pow(dE,5) - XIIA*Math.pow(dE,7);
+    return [outLat * 180/Math.PI, outLon * 180/Math.PI];
+}
+const TX = 446.448, TY = -125.157, TZ = 542.060;
+const RX = (0.1502/3600) * Math.PI/180;
+const RY = (0.2470/3600) * Math.PI/180;
+const RZ = (0.8421/3600) * Math.PI/180;
+const SC = -20.4894e-6;
+const A_WGS = 6378137.0;
+const F_WGS = 1 / 298.257223563;
+const E2_WGS = 2*F_WGS - F_WGS*F_WGS;
+function osgb36ToWgs84(latDeg, lonDeg) {
+    const lat = latDeg * Math.PI/180, lon = lonDeg * Math.PI/180;
+    const sinL = Math.sin(lat), cosL = Math.cos(lat);
+    const sinO = Math.sin(lon), cosO = Math.cos(lon);
+    const nu = A_AIRY / Math.sqrt(1 - E2*sinL*sinL);
+    const x1 = nu*cosL*cosO, y1 = nu*cosL*sinO, z1 = (1-E2)*nu*sinL;
+    const x2 = TX + (1+SC)*x1 + (-RZ)*y1 + (RY)*z1;
+    const y2 = TY + (RZ)*x1 + (1+SC)*y1 + (-RX)*z1;
+    const z2 = TZ + (-RY)*x1 + (RX)*y1 + (1+SC)*z1;
+    const p = Math.sqrt(x2*x2 + y2*y2);
+    let lat2 = Math.atan2(z2, p*(1 - E2_WGS));
+    for (let i = 0; i < 8; i++) {
+        const sl = Math.sin(lat2);
+        const nu2 = A_WGS / Math.sqrt(1 - E2_WGS*sl*sl);
+        lat2 = Math.atan2(z2 + E2_WGS*nu2*sl, p);
+    }
+    const lon2 = Math.atan2(y2, x2);
+    return [lat2 * 180/Math.PI, lon2 * 180/Math.PI];
+}
+
+function gridBearing(e1, n1, e2, n2) {
+    const b = Math.atan2(e2 - e1, n2 - n1) * 180 / Math.PI;
+    return (b + 360) % 360;
+}
+function gridDistanceM(e1, n1, e2, n2) {
+    return Math.hypot(e2 - e1, n2 - n1);
+}
+
+// ============================================================================
+// Inverse: WGS84 -> OSGB grid ref (needed when importing GPX in lat/lon).
+// Same maths as the forward direction, just run the other way.
+// ============================================================================
+
+// Inverse Helmert: WGS84 -> OSGB36 lat/lon (degrees). Signs of all
+// translation/rotation/scale params flip relative to the forward transform.
+function wgs84ToOsgb36(latDeg, lonDeg) {
+    const lat = latDeg * Math.PI/180, lon = lonDeg * Math.PI/180;
+    const sl = Math.sin(lat), cl = Math.cos(lat);
+    const sn = Math.sin(lon), cn = Math.cos(lon);
+
+    const A_W = 6378137.0;
+    const F_W = 1 / 298.257223563;
+    const E2_W = 2*F_W - F_W*F_W;
+    const nu = A_W / Math.sqrt(1 - E2_W*sl*sl);
+    const x1 = nu*cl*cn, y1 = nu*cl*sn, z1 = (1 - E2_W)*nu*sl;
+
+    // Inverse Helmert constants (forward params with signs flipped)
+    const TXi = -446.448, TYi = 125.157, TZi = -542.060;
+    const RXi = (-0.1502/3600) * Math.PI/180;
+    const RYi = (-0.2470/3600) * Math.PI/180;
+    const RZi = (-0.8421/3600) * Math.PI/180;
+    const Si  = +20.4894e-6;
+
+    const x2 = TXi + (1+Si)*x1 + (-RZi)*y1 + (RYi)*z1;
+    const y2 = TYi + (RZi)*x1 + (1+Si)*y1 + (-RXi)*z1;
+    const z2 = TZi + (-RYi)*x1 + (RXi)*y1 + (1+Si)*z1;
+
+    const p = Math.sqrt(x2*x2 + y2*y2);
+    let lat2 = Math.atan2(z2, p*(1 - E2));
+    for (let i = 0; i < 8; i++) {
+        const sl2 = Math.sin(lat2);
+        const nu2 = A_AIRY / Math.sqrt(1 - E2*sl2*sl2);
+        lat2 = Math.atan2(z2 + E2*nu2*sl2, p);
+    }
+    const lon2 = Math.atan2(y2, x2);
+    return [lat2 * 180/Math.PI, lon2 * 180/Math.PI];
+}
+
+// Forward transverse Mercator: OSGB36 lat/lon -> easting/northing.
+function osgb36LatLonToEn(latDeg, lonDeg) {
+    const lat = latDeg * Math.PI/180, lon = lonDeg * Math.PI/180;
+    const sl = Math.sin(lat), cl = Math.cos(lat), tl = Math.tan(lat);
+    const nu  = A_AIRY * F0 / Math.sqrt(1 - E2*sl*sl);
+    const rho = A_AIRY * F0 * (1 - E2) / Math.pow(1 - E2*sl*sl, 1.5);
+    const eta2 = nu/rho - 1;
+    const M = meridionalArc(lat);
+
+    const I    = M + N0;
+    const II   = nu/2  * sl * cl;
+    const III  = nu/24 * sl * Math.pow(cl, 3) * (5 - tl*tl + 9*eta2);
+    const IIIA = nu/720* sl * Math.pow(cl, 5) * (61 - 58*tl*tl + Math.pow(tl, 4));
+    const IV   = nu * cl;
+    const V    = nu/6  * Math.pow(cl, 3) * (nu/rho - tl*tl);
+    const VI   = nu/120* Math.pow(cl, 5) * (5 - 18*tl*tl + Math.pow(tl,4) + 14*eta2 - 58*tl*tl*eta2);
+
+    const dlon = lon - LON0;
+    const N = I + II*dlon*dlon + III*Math.pow(dlon, 4) + IIIA*Math.pow(dlon, 6);
+    const E = E0 + IV*dlon + V*Math.pow(dlon, 3) + VI*Math.pow(dlon, 5);
+    return [E, N];
+}
+
+// Easting/Northing -> grid ref string (e.g. "SU 879 166" at 6 figures).
+const _GRID_FIRST = { 0: ["S","T"], 500000: ["N","O"], 1000000: ["H","J"] };
+const _GRID_SECOND = "ABCDEFGHJKLMNOPQRSTUVWXYZ";
+function enToGridRef(easting, northing, figures = 6) {
+    if (easting < 0 || northing < 0 || easting >= 700000 || northing >= 1300000) {
+        throw new Error("coordinate is outside the OS National Grid");
+    }
+    const e500 = Math.floor(easting / 500000) * 500000;
+    const n500 = Math.floor(northing / 500000) * 500000;
+    const firstRow = _GRID_FIRST[n500];
+    if (!firstRow) throw new Error("outside National Grid");
+    const L1 = firstRow[e500 / 500000];
+
+    const eIn = easting - e500;
+    const nIn = northing - n500;
+    const col = Math.floor(eIn / 100000);
+    const row = Math.floor(nIn / 100000);
+    const idx = (4 - row) * 5 + col;
+    const L2 = _GRID_SECOND[idx];
+
+    const half = figures / 2;
+    const scale = Math.pow(10, 5 - half);
+    const eDig = Math.floor((easting % 100000) / scale);
+    const nDig = Math.floor((northing % 100000) / scale);
+    const pad = s => String(s).padStart(half, "0");
+    return `${L1}${L2} ${pad(eDig)} ${pad(nDig)}`;
+}
+
+// One-shot: WGS84 lat/lon -> OS grid ref string at given precision.
+function wgs84ToGridRef(lat, lon, figures = 6) {
+    const [la36, lo36] = wgs84ToOsgb36(lat, lon);
+    const [e, n] = osgb36LatLonToEn(la36, lo36);
+    return enToGridRef(Math.round(e), Math.round(n), figures);
+}
+
+// Haversine distance between two WGS84 lat/lon points, in metres.
+function haversineM(lat1, lon1, lat2, lon2) {
+    const R = 6371000;
+    const la1 = lat1 * Math.PI/180, la2 = lat2 * Math.PI/180;
+    const dla = (lat2 - lat1) * Math.PI/180;
+    const dlo = (lon2 - lon1) * Math.PI/180;
+    const a = Math.sin(dla/2)**2 + Math.cos(la1)*Math.cos(la2)*Math.sin(dlo/2)**2;
+    return 2 * R * Math.asin(Math.sqrt(a));
+}
+
+// ============================================================================
+// Naismith timing
+// ============================================================================
+const FLAT_MIN_PER_KM = 12.0;     // 5 km/h base
+const ASCENT_MIN_PER_M = 0.1;     // 1 min per 10 m
+
+function naismithMinutes(distKm, ascentM, paceFactor) {
+    const flat  = distKm * FLAT_MIN_PER_KM / paceFactor;
+    const climb = Math.max(ascentM, 0) * ASCENT_MIN_PER_M / paceFactor;
+    return flat + climb;
+}
+function withRest(walkingMin, restPerHour) {
+    if (walkingMin <= 0) return 0;
+    return walkingMin * (1 + restPerHour / 60);
+}
+function formatMinutes(min) {
+    const total = Math.round(min);
+    const h = Math.floor(total / 60), m = total % 60;
+    return h ? `${h}h ${String(m).padStart(2, "0")}m` : `${m}m`;
+}
+
+// ============================================================================
+// Elevation API (Open-Meteo, Copernicus DEM ~90m, free, no key)
+// ============================================================================
+const ELEV_ENDPOINT      = "https://api.open-meteo.com/v1/elevation";
+const ELEV_SAMPLE_SPACING = 50;   // metres between samples along a leg
+const ELEV_MIN_SAMPLES    = 5;    // never fewer than this
+const ELEV_MAX_SAMPLES    = 60;   // cap per leg to keep URL length sane
+const ELEV_BATCH_LIMIT    = 100;  // max coords per API request
+
+// Sample N points along a leg from (e1,n1) to (e2,n2) inclusive,
+// converted to WGS84 lat/lon for the elevation API.
+function sampleLegLatLons(e1, n1, e2, n2) {
+    const distM = gridDistanceM(e1, n1, e2, n2);
+    let n = Math.round(distM / ELEV_SAMPLE_SPACING) + 1;
+    n = Math.max(ELEV_MIN_SAMPLES, Math.min(ELEV_MAX_SAMPLES, n));
+    const samples = [];
+    for (let i = 0; i < n; i++) {
+        const t = i / (n - 1);
+        const e = e1 + (e2 - e1) * t;
+        const nN = n1 + (n2 - n1) * t;
+        const [lat36, lon36] = enToOsgb36LatLon(e, nN);
+        const [lat, lon] = osgb36ToWgs84(lat36, lon36);
+        samples.push([lat, lon]);
+    }
+    return samples;
+}
+
+// Sum of positive deltas (ascent) and negative deltas (descent) across an
+// elevation profile. Both returned as positive metres.
+function ascentDescent(elevs) {
+    let asc = 0, desc = 0;
+    for (let i = 1; i < elevs.length; i++) {
+        const d = elevs[i] - elevs[i - 1];
+        if (d > 0) asc += d;
+        else       desc -= d;
+    }
+    return { ascent: asc, descent: desc };
+}
+
+// Call the elevation endpoint for a flat list of [lat, lon] pairs and
+// return a flat list of elevations in the same order.
+async function queryElevations(latLons) {
+    if (!latLons.length) return [];
+    const out = [];
+    for (let off = 0; off < latLons.length; off += ELEV_BATCH_LIMIT) {
+        const batch = latLons.slice(off, off + ELEV_BATCH_LIMIT);
+        const lats = batch.map(p => p[0].toFixed(5)).join(",");
+        const lons = batch.map(p => p[1].toFixed(5)).join(",");
+        const url = `${ELEV_ENDPOINT}?latitude=${lats}&longitude=${lons}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`elevation API HTTP ${res.status}`);
+        const json = await res.json();
+        if (json.error) throw new Error(json.reason || "elevation API error");
+        if (!Array.isArray(json.elevation)) throw new Error("unexpected response shape");
+        out.push(...json.elevation);
+    }
+    return out;
+}
+
+// Top-level: fetch elevations for every leg in current state and write
+// ascent/descent back onto the destination waypoints.
+async function fetchAllElevations() {
+    const wps = state.waypoints;
+    if (wps.length < 2) throw new Error("need at least two waypoints");
+
+    // Validate every grid ref up front — fail fast with a clear message.
+    const ens = wps.map(wp => {
+        try { return parseGridRef(wp.gridRef); }
+        catch (e) { throw new Error(`waypoint "${wp.name || wp.gridRef}": ${e.message}`); }
+    });
+
+    // Build the full sample list and remember each leg's slice.
+    // If a GPX track is loaded, sample along the actual track (much more
+    // accurate than the straight-line samples we'd otherwise use).
+    const all = [];
+    const slices = [];   // {start, end, destIndex}
+    for (let i = 0; i < wps.length - 1; i++) {
+        let samples;
+        const a = wps[i], b = wps[i + 1];
+        if (state.track && a.trackSlice && b.trackSlice) {
+            samples = sampleAlongTrack(state.track, a.trackSlice.idx, b.trackSlice.idx);
+        } else {
+            const ea = ens[i], eb = ens[i + 1];
+            samples = sampleLegLatLons(ea.easting, ea.northing, eb.easting, eb.northing);
+        }
+        slices.push({ start: all.length, end: all.length + samples.length, destIndex: i + 1 });
+        all.push(...samples);
+    }
+
+    const elevs = await queryElevations(all);
+
+    // Apply per-leg results.
+    for (const s of slices) {
+        const profile = elevs.slice(s.start, s.end);
+        const { ascent, descent } = ascentDescent(profile);
+        const wp = wps[s.destIndex];
+        wp.ascent = Math.round(ascent);
+        wp.descent = Math.round(descent);
+        wp.ascentSource = "api";
+    }
+    return { points: all.length, legs: slices.length };
+}
+
+// Pick sample points along the GPX track between two indices, capped to
+// keep API requests sensible. Returns [[lat,lon], ...].
+function sampleAlongTrack(track, fromIdx, toIdx) {
+    const n = toIdx - fromIdx + 1;
+    if (n <= ELEV_MAX_SAMPLES) {
+        // Use every track point — already at ~40 m spacing in OS Maps.
+        return track.slice(fromIdx, toIdx + 1);
+    }
+    // Decimate evenly.
+    const out = [];
+    for (let k = 0; k < ELEV_MAX_SAMPLES; k++) {
+        const idx = fromIdx + Math.round(k * (n - 1) / (ELEV_MAX_SAMPLES - 1));
+        out.push(track[idx]);
+    }
+    return out;
+}
+
+// ============================================================================
+// GPX import (OS Maps export)
+// ============================================================================
+//
+// OS Maps writes <wpt> elements for every click-point on the drawn route
+// plus <trkpt> elements for the rendered path. Track points often follow
+// real footpaths and are denser (~40 m apart), giving us much more
+// accurate leg distances than waypoint-to-waypoint straight lines.
+//
+// We use this strategy:
+//   1. <wpt> elements become our waypoints (in order). Names come blank.
+//   2. <trkpt> elements become a polyline stored on state.track.
+//   3. For each waypoint, we find its closest track-point index. (For
+//      OS Maps exports this match is exact, distance 0; for GPX from
+//      other sources it might be a few metres off — still fine.)
+//   4. Each leg's distance becomes the sum of haversine hops between
+//      consecutive track points within that leg's slice — the real path.
+
+function parseGpx(xmlText) {
+    const doc = new DOMParser().parseFromString(xmlText, "application/xml");
+    const parserError = doc.querySelector("parsererror");
+    if (parserError) throw new Error("not a valid XML file");
+    if (doc.documentElement.nodeName.toLowerCase() !== "gpx") {
+        throw new Error("not a GPX file (root element is not <gpx>)");
+    }
+
+    const wpts = [...doc.getElementsByTagNameNS("*", "wpt")].map(el => ({
+        lat: parseFloat(el.getAttribute("lat")),
+        lon: parseFloat(el.getAttribute("lon")),
+        name: (el.getElementsByTagNameNS("*", "name")[0]?.textContent || "").trim(),
+    })).filter(p => Number.isFinite(p.lat) && Number.isFinite(p.lon));
+
+    const trkpts = [...doc.getElementsByTagNameNS("*", "trkpt")].map(el => [
+        parseFloat(el.getAttribute("lat")),
+        parseFloat(el.getAttribute("lon")),
+    ]).filter(p => Number.isFinite(p[0]) && Number.isFinite(p[1]));
+
+    // Route name from <metadata><name> or <trk><name> (in that order).
+    const meta = doc.getElementsByTagNameNS("*", "metadata")[0];
+    const trk  = doc.getElementsByTagNameNS("*", "trk")[0];
+    const routeName = (
+        meta?.getElementsByTagNameNS("*", "name")[0]?.textContent ||
+        trk?.getElementsByTagNameNS("*", "name")[0]?.textContent || ""
+    ).trim();
+
+    return { waypoints: wpts, track: trkpts, routeName };
+}
+
+// For each waypoint, find the index of its nearest track point.
+function snapWaypointsToTrack(wpts, track) {
+    return wpts.map(wp => {
+        let bestI = 0, bestD = Infinity;
+        for (let i = 0; i < track.length; i++) {
+            const d = haversineM(wp.lat, wp.lon, track[i][0], track[i][1]);
+            if (d < bestD) { bestD = d; bestI = i; }
+        }
+        return { trackIdx: bestI, snapDistM: bestD };
+    });
+}
+
+// Sum haversine distances along a slice of the track, returning kilometres.
+function trackDistanceKm(track, fromIdx, toIdx) {
+    if (toIdx <= fromIdx) return 0;
+    let total = 0;
+    for (let i = fromIdx; i < toIdx; i++) {
+        total += haversineM(track[i][0], track[i][1], track[i+1][0], track[i+1][1]);
+    }
+    return total / 1000;
+}
+
+// Top-level: build new state.waypoints from a parsed GPX.
+function applyGpx({ waypoints, track, routeName }) {
+    if (waypoints.length < 2) {
+        if (track.length >= 2) {
+            // No <wpt> elements — fall back to using the track's two endpoints.
+            // Pupil can add intermediate waypoints by hand afterwards.
+            waypoints = [
+                { lat: track[0][0],            lon: track[0][1],            name: "" },
+                { lat: track[track.length-1][0], lon: track[track.length-1][1], name: "" },
+            ];
+        } else {
+            throw new Error("GPX has fewer than two waypoints and no track points");
+        }
+    }
+
+    const snaps = track.length ? snapWaypointsToTrack(waypoints, track) : null;
+
+    state.track = track.length ? track : null;
+    state.waypoints = waypoints.map((wp, i) => {
+        const ref = wgs84ToGridRef(wp.lat, wp.lon, 6);
+        // OS Maps doesn't put names in <wpt>, so generate placeholder names
+        // like "Waypoint 3 (TQ 077 489)". They're real values (so Generate
+        // works immediately), but get a visual cue (italic, faded) until
+        // the pupil edits them — see renderWaypoints.
+        const givenName = (wp.name || "").trim();
+        const w = givenName
+            ? newWaypoint(givenName, ref, 0)
+            : newWaypoint(`Waypoint ${i + 1} (${ref})`, ref, 0);
+        if (!givenName) w.nameSource = "auto";
+        if (snaps) w.trackSlice = { idx: snaps[i].trackIdx };
+        return w;
+    });
+    // Now that all waypoints have track indices, fill in the per-leg track distance.
+    if (snaps) {
+        for (let i = 1; i < state.waypoints.length; i++) {
+            const a = state.waypoints[i-1].trackSlice.idx;
+            const b = state.waypoints[i].trackSlice.idx;
+            state.waypoints[i].trackDistKm = trackDistanceKm(track, a, b);
+            state.waypoints[i].trackSource = "gpx";
+        }
+    }
+    state.nextId = state.waypoints.length + 1;
+
+    if (routeName) {
+        const inp = document.getElementById("routeName");
+        if (inp && !inp.value.trim()) inp.value = routeName;
+    }
+
+    return {
+        wptCount: state.waypoints.length,
+        trkCount: track.length,
+        totalKm:  track.length ? trackDistanceKm(track, 0, track.length - 1) : 0,
+    };
+}
+
+// ============================================================================
+// Magnetic variation (declination)
+//
+// We compute the route centroid (average WGS84 lat/lon of all waypoints),
+// then try the NOAA World Magnetic Model API. On failure (offline, CORS)
+// we fall back to a UK-specific polynomial approximation accurate to ~0.5°
+// — plenty for DofE use.
+//
+// Result is stored on state so the printed card always matches the on-screen
+// value and doesn't re-query on every render.
+// ============================================================================
+
+const NOAA_MAG_URL = "https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination";
+
+// UK polynomial approximation.
+// Coefficients give ~0.5° accuracy for lat 50-60°N, lon -8 to +2°E, 2020-2030.
+// Based on WMM-2020 and BGS published guidance.
+function magVariationApprox(lat, lon, year) {
+    const D = -2.08
+        + 0.0107 * (lat - 54)
+        - 0.0174 * (lon + 3.5)
+        + 0.27   * (year - 2020);
+    return D; // negative = West
+}
+
+// Format a declination in degrees to a human-readable compass direction string.
+// e.g. −1.7 → "1.7° West"   +0.4 → "0.4° East"   0 → "0° (no correction)"
+function formatDeclination(deg) {
+    const abs = Math.abs(deg);
+    const dir = deg < -0.05 ? "West" : deg > 0.05 ? "East" : null;
+    if (!dir) return { display: "0° (no correction needed)", instruction: "No magnetic correction needed for this route." };
+    const rounded = abs.toFixed(1);
+    const rotDir = deg < 0 ? "subtract" : "add";
+    return {
+        display: `${rounded}° ${dir}`,
+        instruction: `To convert a grid bearing to a magnetic bearing, ${rotDir} ${rounded}° `
+            + `(${dir.toLowerCase()} declination means true north is ${dir.toLowerCase()} of grid north).`,
+    };
+}
+
+// Try NOAA API first, fall back to approximation.
+async function fetchMagVariation(lat, lon, date) {
+    const yr  = date.getFullYear();
+    const mo  = date.getMonth() + 1;
+    const day = date.getDate();
+    try {
+        const url = `${NOAA_MAG_URL}?lat1=${lat.toFixed(4)}&lon1=${lon.toFixed(4)}`
+            + `&model=WMM&startYear=${yr}&startMonth=${mo}&startDay=${day}&resultFormat=json`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = await res.json();
+        const decl = json?.result?.[0]?.declination;
+        if (typeof decl !== "number") throw new Error("unexpected shape");
+        return { decl, source: "NOAA World Magnetic Model" };
+    } catch {
+        // Offline or CORS — use polynomial approximation.
+        const approx = magVariationApprox(lat, lon, yr + (mo - 1) / 12);
+        return { decl: approx, source: "UK approximation (±0.5°)" };
+    }
+}
+
+// Compute WGS84 centroid of current waypoints.
+function routeCentroid() {
+    const wps = state.waypoints;
+    let latSum = 0, lonSum = 0, count = 0;
+    for (const wp of wps) {
+        try {
+            const { easting, northing } = parseGridRef(wp.gridRef);
+            const [la36, lo36] = enToOsgb36LatLon(easting, northing);
+            const [la84, lo84] = osgb36ToWgs84(la36, lo36);
+            latSum += la84; lonSum += lo84; count++;
+        } catch { /* skip invalid */ }
+    }
+    if (!count) throw new Error("no valid waypoints for centroid");
+    return [latSum / count, lonSum / count];
+}
+
+// ============================================================================
+// State + UI
+// ============================================================================
+const state = {
+    waypoints: [],         // {id, name, gridRef, ascent, descent, ascentSource,
+                           //  trackSlice, trackDistKm, trackSource}
+    nextId: 1,
+    paceFactor: 0.7,
+    level: "bronze",
+    restPerHour: 10,
+    // Imported GPX polyline as flat list of [lat, lon] pairs, or null when not imported.
+    track: null,
+};
+
+function newWaypoint(name = "", gridRef = "", ascent = 0) {
+    // ascent      = climb on the leg ENTERING this waypoint (metres)
+    // descent     = drop on the leg ENTERING this waypoint (metres, +ve)
+    // ascentSource= "manual" | "api" — drives the small indicator next to the field
+    // trackSlice  = {fromIdx, toIdx}  if this leg is backed by GPX track geometry
+    // trackDistKm = path-distance along the track for the leg ENTERING here
+    // trackSource = "manual" | "gpx" — drives the "from GPX track" pill
+    // nameSource  = "manual" | "auto" — placeholder names from GPX import are styled
+    //               distinctively to nudge pupils to rename them
+    return {
+        id: state.nextId++, name, gridRef, ascent,
+        descent: 0, ascentSource: "manual",
+        trackSlice: null, trackDistKm: null, trackSource: "manual",
+        nameSource: "manual",
+    };
+}
+
+function renderWaypoints() {
+    const root = document.getElementById("waypoints");
+    root.innerHTML = "";
+    state.waypoints.forEach((wp, i) => {
+        const row = document.createElement("div");
+        row.className = "waypoint";
+        row.dataset.id = wp.id;
+
+        // Number
+        const num = document.createElement("div");
+        num.className = "wp-num";
+        num.textContent = String(i + 1).padStart(2, "0");
+
+        // Name
+        const nameWrap = document.createElement("div");
+        nameWrap.className = "wp-name";
+        const nameInp = document.createElement("input");
+        nameInp.type = "text";
+        nameInp.value = wp.name;
+        nameInp.placeholder = i === 0 ? "Starting point" : "Waypoint name (e.g. Stile at field boundary)";
+        if (wp.nameSource === "auto") nameInp.classList.add("auto-name");
+        nameInp.addEventListener("focus", e => {
+            // Select-all on focus for auto-named fields so the pupil can
+            // overwrite with one keystroke instead of deleting first.
+            if (wp.nameSource === "auto") e.target.select();
+        });
+        nameInp.addEventListener("input", e => {
+            wp.name = e.target.value;
+            if (wp.nameSource === "auto") {
+                wp.nameSource = "manual";
+                e.target.classList.remove("auto-name");
+            }
+        });
+        nameWrap.appendChild(nameInp);
+
+        // Grid ref
+        const grefWrap = document.createElement("div");
+        grefWrap.className = "wp-gref";
+        const grefInp = document.createElement("input");
+        grefInp.type = "text";
+        grefInp.className = "mono";
+        grefInp.value = wp.gridRef;
+        grefInp.placeholder = "SU 879 166";
+        grefInp.autocomplete = "off";
+        grefInp.spellcheck = false;
+        grefInp.addEventListener("input", e => {
+            wp.gridRef = e.target.value;
+            // Editing the grid ref means the GPX track distance no longer
+            // matches this waypoint's location — drop back to manual.
+            if (wp.trackSource === "gpx") {
+                wp.trackSource = "manual";
+                wp.trackDistKm = null;
+                wp.trackSlice = null;
+            }
+            updateWaypointDetail(row, wp);
+        });
+        grefWrap.appendChild(grefInp);
+
+        // Ascent (only meaningful from waypoint 2 onwards — it's ascent INTO this point)
+        const ascWrap = document.createElement("div");
+        ascWrap.className = "wp-asc";
+        const ascInp = document.createElement("input");
+        ascInp.type = "number";
+        ascInp.className = "mono";
+        ascInp.value = wp.ascent;
+        ascInp.min = 0;
+        ascInp.step = 5;
+        ascInp.placeholder = "Ascent m";
+        ascInp.title = i === 0 ? "Not used for the starting point" : "Ascent in metres for the leg arriving here";
+        if (i === 0) {
+            ascInp.disabled = true;
+            ascInp.value = "";
+            ascInp.placeholder = "—";
+        }
+        ascInp.addEventListener("input", e => {
+            wp.ascent = parseFloat(e.target.value) || 0;
+            wp.ascentSource = "manual";
+            updateWaypointDetail(row, wp);
+        });
+        ascWrap.appendChild(ascInp);
+
+        // Controls
+        const ctrls = document.createElement("div");
+        ctrls.className = "wp-controls";
+        const upBtn = makeIconBtn("up", "Move up", () => moveWaypoint(wp.id, -1));
+        const dnBtn = makeIconBtn("down", "Move down", () => moveWaypoint(wp.id, +1));
+        const delBtn = makeIconBtn("x", "Remove", () => removeWaypoint(wp.id));
+        delBtn.classList.add("delete");
+        if (i === 0) upBtn.disabled = true;
+        if (i === state.waypoints.length - 1) dnBtn.disabled = true;
+        if (state.waypoints.length <= 2) delBtn.disabled = true;
+        ctrls.append(upBtn, dnBtn, delBtn);
+
+        // Detail (parsed E/N or error)
+        const detail = document.createElement("div");
+        detail.className = "wp-detail";
+
+        row.append(num, nameWrap, grefWrap, ascWrap, ctrls, detail);
+        root.appendChild(row);
+
+        updateWaypointDetail(row, wp);
+    });
+    updateGenerateButton();
+}
+
+function makeIconBtn(kind, title, onClick) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "icon-btn";
+    btn.title = title;
+    btn.setAttribute("aria-label", title);
+    const svgs = {
+        up: '<svg viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M2 7 L6 3 L10 7"/></svg>',
+        down: '<svg viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M2 5 L6 9 L10 5"/></svg>',
+        x: '<svg viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M3 3 L9 9 M9 3 L3 9"/></svg>',
+    };
+    btn.innerHTML = svgs[kind];
+    btn.addEventListener("click", onClick);
+    return btn;
+}
+
+function updateWaypointDetail(row, wp) {
+    const detail = row.querySelector(".wp-detail");
+    row.classList.remove("invalid");
+    if (!wp.gridRef.trim()) {
+        detail.innerHTML = '<span style="opacity:0.5">Awaiting grid ref…</span>';
+        return;
+    }
+    try {
+        const { easting, northing } = parseGridRef(wp.gridRef);
+        const i = state.waypoints.indexOf(wp);
+        const tags = [];
+        if (i > 0 && wp.ascentSource === "api") {
+            const desc = wp.descent ? ` · ↓ ${Math.round(wp.descent)} m` : "";
+            tags.push(`<span class="elev-tag" title="From elevation API — edit to override">↑ ${Math.round(wp.ascent)} m${desc} from elevation data</span>`);
+        }
+        if (i > 0 && wp.trackSource === "gpx" && wp.trackDistKm != null) {
+            tags.push(`<span class="elev-tag track-tag" title="Real path distance from imported GPX track">${wp.trackDistKm.toFixed(2)} km along GPX track</span>`);
+        }
+        detail.innerHTML = `<span class="ok">✓ Easting ${easting} · Northing ${northing}</span> ${tags.join(" ")}`;
+    } catch (err) {
+        row.classList.add("invalid");
+        detail.innerHTML = `<span class="err">✗ ${err.message}</span>`;
+    }
+}
+
+function moveWaypoint(id, delta) {
+    const i = state.waypoints.findIndex(w => w.id === id);
+    const j = i + delta;
+    if (i < 0 || j < 0 || j >= state.waypoints.length) return;
+    [state.waypoints[i], state.waypoints[j]] = [state.waypoints[j], state.waypoints[i]];
+    renderWaypoints();
+}
+
+function removeWaypoint(id) {
+    if (state.waypoints.length <= 2) return;
+    state.waypoints = state.waypoints.filter(w => w.id !== id);
+    renderWaypoints();
+}
+
+function addWaypoint() {
+    state.waypoints.push(newWaypoint());
+    renderWaypoints();
+}
+
+function allWaypointsValid() {
+    // For "Generate route card" — needs names too, since the assessor card
+    // is useless without descriptive waypoint names.
+    if (state.waypoints.length < 2) return false;
+    return state.waypoints.every(wp => {
+        if (!wp.name.trim() || !wp.gridRef.trim()) return false;
+        try { parseGridRef(wp.gridRef); return true; } catch { return false; }
+    });
+}
+
+function allGridRefsValid() {
+    // For "Fetch elevations" — names not required, only valid coordinates.
+    if (state.waypoints.length < 2) return false;
+    return state.waypoints.every(wp => {
+        if (!wp.gridRef.trim()) return false;
+        try { parseGridRef(wp.gridRef); return true; } catch { return false; }
+    });
+}
+
+function updateGenerateButton() {
+    document.getElementById("generateBtn").disabled = !allWaypointsValid();
+    const fetchBtn = document.getElementById("fetchElevBtn");
+    if (fetchBtn) fetchBtn.disabled = !allGridRefsValid();
+}
+
+// ============================================================================
+// Generate route card
+// ============================================================================
+async function generate() {
+    if (!allWaypointsValid()) return;
+
+    const generateBtn = document.getElementById("generateBtn");
+    generateBtn.disabled = true;
+    generateBtn.textContent = "Generating…";
+
+    const routeName = document.getElementById("routeName").value.trim() || "Untitled route";
+    const routeDate = document.getElementById("routeDate").value;
+    const dateStr = routeDate
+        ? new Date(routeDate + "T00:00").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
+        : "Date TBC";
+
+    // Compute legs
+    const wps = state.waypoints.map(wp => {
+        const en = parseGridRef(wp.gridRef);
+        return { ...wp, easting: en.easting, northing: en.northing };
+    });
+    const legs = [];
+    for (let i = 0; i < wps.length - 1; i++) {
+        const a = wps[i], b = wps[i + 1];
+        // Distance: prefer GPX track distance (real path) over straight-line.
+        const distKm = (b.trackDistKm != null)
+            ? b.trackDistKm
+            : gridDistanceM(a.easting, a.northing, b.easting, b.northing) / 1000;
+        const bearing = gridBearing(a.easting, a.northing, b.easting, b.northing);
+        const ascent = b.ascent || 0;
+        const descent = b.descent || 0;
+        const walkMin = naismithMinutes(distKm, ascent, state.paceFactor);
+        const totalMin = withRest(walkMin, state.restPerHour);
+        legs.push({ from: a, to: b, distKm, bearing, ascent, descent,
+                    minutes: totalMin, distSource: b.trackSource });
+    }
+
+    // Header / totals
+    document.getElementById("outTitle").textContent = routeName;
+    document.getElementById("outMeta").innerHTML =
+        `<span>${dateStr}</span><span>${state.level.toUpperCase()}</span><span>Pace ${state.paceFactor.toFixed(2)}× Naismith</span><span>+${state.restPerHour} min/hr rest</span>`;
+
+    const totDist = legs.reduce((s, l) => s + l.distKm, 0);
+    const totAsc = legs.reduce((s, l) => s + l.ascent, 0);
+    const totDesc = legs.reduce((s, l) => s + l.descent, 0);
+    const totMin = legs.reduce((s, l) => s + l.minutes, 0);
+
+    const ascentDescentLine = totDesc > 0
+        ? `${Math.round(totAsc)}<span class="unit">m ↑</span> · ${Math.round(totDesc)}<span class="unit">m ↓</span>`
+        : `${Math.round(totAsc)}<span class="unit">m</span>`;
+
+    document.getElementById("outTotals").innerHTML = `
+        <div class="stat">
+            <div class="stat-label">Distance</div>
+            <div class="stat-value">${totDist.toFixed(2)}<span class="unit">km</span></div>
+        </div>
+        <div class="stat">
+            <div class="stat-label">Ascent ${totDesc > 0 ? '/ Descent' : ''}</div>
+            <div class="stat-value">${ascentDescentLine}</div>
+        </div>
+        <div class="stat">
+            <div class="stat-label">Total time</div>
+            <div class="stat-value">${formatMinutes(totMin)}</div>
+        </div>
+    `;
+
+    // Body
+    const body = document.getElementById("outBody");
+    body.innerHTML = "";
+    let cum = 0;
+    legs.forEach((leg, idx) => {
+        cum += leg.minutes;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td class="cell-num">${String(idx + 1).padStart(2, "0")}</td>
+            <td class="cell-from-to">
+                <strong>${escapeHtml(leg.from.name)}</strong>
+                <span class="cell-gref">${escapeHtml(leg.from.gridRef.toUpperCase())}</span>
+                <span class="arrow">↓</span>
+                <strong>${escapeHtml(leg.to.name)}</strong>
+                <span class="cell-gref">${escapeHtml(leg.to.gridRef.toUpperCase())}</span>
+            </td>
+            <td class="cell-mono">${Math.round(leg.bearing).toString().padStart(3, "0")}°</td>
+            <td class="cell-mono">${leg.distKm.toFixed(2)} km</td>
+            <td class="cell-mono">${leg.ascent
+                ? Math.round(leg.ascent) + " m" + (leg.descent ? `<br><span style="color:var(--ink-soft);font-size:0.82rem">↓ ${Math.round(leg.descent)} m</span>` : "")
+                : "—"}</td>
+            <td class="cell-mono">${formatMinutes(leg.minutes)}</td>
+            <td class="cell-mono">${formatMinutes(cum)}</td>
+            <td><em style="color:var(--ink-soft); font-size:0.85rem">Add escape route &amp; nav notes by hand</em></td>
+        `;
+        body.appendChild(tr);
+    });
+
+    // Magnetic variation ---------------------------------------------------
+    // Show a "calculating…" placeholder immediately so the card is visible
+    // while the API call is in flight.
+    const magEl = document.getElementById("magNotice");
+    magEl.innerHTML = `<span style="opacity:0.55; font-style:italic">Calculating magnetic variation…</span>`;
+
+    document.getElementById("output").hidden = false;
+    document.getElementById("output").scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // Now fetch (async) — centroid requires eastings which are already in wps.
+    try {
+        const [cLat, cLon] = routeCentroid();
+        const routeDate = document.getElementById("routeDate").value;
+        const date = routeDate ? new Date(routeDate + "T12:00") : new Date();
+        const { decl, source } = await fetchMagVariation(cLat, cLon, date);
+        state.magVariation = { decl, source };
+        const { display, instruction } = formatDeclination(decl);
+        magEl.innerHTML = `
+            <span>🧭&ensp;<strong>Magnetic variation:</strong></span>
+            <span class="mag-value">${escapeHtml(display)}</span>
+            <span>${escapeHtml(instruction)}</span>
+            <span class="mag-source">${escapeHtml(source)}</span>
+        `;
+    } catch {
+        magEl.innerHTML = `<span style="opacity:0.55">Magnetic variation unavailable — check OS Maps or BGS before the expedition.</span>`;
+    } finally {
+        generateBtn.disabled = false;
+        generateBtn.textContent = "Generate route card";
+        updateGenerateButton();
+    }
+}
+
+function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, ch => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"
+    }[ch]));
+}
+
+// ============================================================================
+// Wire up
+// ============================================================================
+document.getElementById("addWaypointBtn").addEventListener("click", addWaypoint);
+document.getElementById("generateBtn").addEventListener("click", generate);
+
+document.getElementById("importGpxBtn").addEventListener("click", () => {
+    document.getElementById("gpxFileInput").click();
+});
+
+document.getElementById("gpxFileInput").addEventListener("change", async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const status = document.getElementById("elevStatus");
+    status.className = "elev-status no-print busy";
+    status.innerHTML = `<span class="spinner"></span> Reading <code>${escapeHtml(file.name)}</code>…`;
+    try {
+        const text = await file.text();
+        const parsed = parseGpx(text);
+        if (parsed.waypoints.length < 2 && parsed.track.length < 2) {
+            throw new Error("file contains no usable waypoints or track");
+        }
+        const summary = applyGpx(parsed);
+        renderWaypoints();
+        const tkBit = summary.trkCount
+            ? ` · ${summary.totalKm.toFixed(2)} km of track (${summary.trkCount} points)`
+            : ` · no track in file — distances will fall back to straight-line`;
+        status.className = "elev-status no-print ok";
+        status.innerHTML = `✓ Imported ${summary.wptCount} waypoint${summary.wptCount===1?'':'s'} from `
+            + `<code>${escapeHtml(file.name)}</code>${tkBit}. `
+            + `<span style="opacity:0.75">Click any italicised waypoint name to give it a meaningful label, then "Fetch elevations".</span>`;
+    } catch (err) {
+        status.className = "elev-status no-print err";
+        status.textContent = `Could not read GPX: ${err.message}`;
+    } finally {
+        // Clear so the same file can be re-imported if needed
+        e.target.value = "";
+    }
+});
+
+document.getElementById("fetchElevBtn").addEventListener("click", async () => {
+    const btn = document.getElementById("fetchElevBtn");
+    const status = document.getElementById("elevStatus");
+    btn.disabled = true;
+    status.className = "elev-status no-print busy";
+    status.innerHTML = `<span class="spinner"></span> Fetching elevations from Open-Meteo…`;
+    try {
+        const t0 = performance.now();
+        const result = await fetchAllElevations();
+        const ms = Math.round(performance.now() - t0);
+        renderWaypoints();   // re-render to show new ascent values + tags
+        const totAsc = state.waypoints.reduce((s, w) => s + (w.ascent || 0), 0);
+        const totDesc = state.waypoints.reduce((s, w) => s + (w.descent || 0), 0);
+        status.className = "elev-status no-print ok";
+        status.innerHTML = `✓ ${result.legs} legs, ${result.points} sample points · `
+            + `total ↑ ${Math.round(totAsc)} m · ↓ ${Math.round(totDesc)} m · `
+            + `<span style="opacity:0.7">${(ms/1000).toFixed(1)}s · ~90 m terrain DEM, edit any field to override</span>`;
+    } catch (err) {
+        status.className = "elev-status no-print err";
+        status.textContent = `Could not fetch elevations: ${err.message}. You can still enter ascent figures by hand.`;
+    } finally {
+        updateGenerateButton();   // re-enables the button if still valid
+    }
+});
+
+document.getElementById("clearBtn").addEventListener("click", () => {
+    if (!confirm("Clear all waypoints and start over?")) return;
+    state.waypoints = [newWaypoint(), newWaypoint()];
+    state.nextId = 3;
+    state.track = null;
+    document.getElementById("routeName").value = "";
+    document.getElementById("output").hidden = true;
+    document.getElementById("elevStatus").innerHTML = "";
+    renderWaypoints();
+});
+
+document.getElementById("sampleBtn").addEventListener("click", () => {
+    state.track = null;
+    state.waypoints = [
+        newWaypoint("Cocking Down car park",   "SU 879 166", 0),
+        newWaypoint("Linch Down trig",         "SU 851 173", 85),
+        newWaypoint("Didling Hill",            "SU 836 179", 30),
+        newWaypoint("Treyford Hill bridleway", "SU 821 181", 15),
+        newWaypoint("Buriton Farm gate",       "SU 808 178", 25),
+    ];
+    document.getElementById("routeName").value = "Cocking → Buriton training day";
+    document.getElementById("elevStatus").innerHTML = "";
+    renderWaypoints();
+});
+
+document.getElementById("levelPills").addEventListener("click", e => {
+    const pill = e.target.closest(".pill");
+    if (!pill) return;
+    document.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
+    pill.classList.add("active");
+    state.level = pill.dataset.level;
+    state.paceFactor = parseFloat(pill.dataset.pace);
+    document.getElementById("paceFactor").value = state.paceFactor;
+    updatePaceReadout();
+});
+
+document.getElementById("paceFactor").addEventListener("input", e => {
+    state.paceFactor = parseFloat(e.target.value);
+    updatePaceReadout();
+});
+function updatePaceReadout() {
+    const kmh = (5 * state.paceFactor).toFixed(1);
+    document.getElementById("paceReadout").textContent =
+        `${state.paceFactor.toFixed(2)} × ≈ ${kmh} km/h`;
+}
+
+document.getElementById("restPerHour").addEventListener("input", e => {
+    state.restPerHour = parseInt(e.target.value, 10) || 0;
+});
+
+// Init
+document.getElementById("routeDate").valueAsDate = new Date();
+state.waypoints = [newWaypoint(), newWaypoint()];
+state.nextId = 3;
+renderWaypoints();
+updatePaceReadout();
+</script>
+</body>
+</html>
